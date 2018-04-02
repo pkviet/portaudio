@@ -1,3 +1,12 @@
+===========================================
+NB: Additional notes, openASIO fork
+
+Branch openasio of this portaudio fork relies on an open sourced implementation of asio sdk under GPL v3+.
+In order to build support for ASIO without relying on Steinberg sdk, run cmake-gui and set:
+ASIOSDK_INCLUDE_DIR to the openasio_sdk folder (which is at same level as src/).
+Select your build folder where your Visual Studio sln will be located.
+For feedback, post on issues tab in github.
+===========================================
 README for PortAudio
 
 /*
@@ -96,3 +105,4 @@ Test Programs:
     test/patest_sine.c     = output a sine wave in a simple PA app
     test/patest_sync.c     = test syncronization of audio and video
     test/patest_wire.c     = pass input to output, wire simulator
+

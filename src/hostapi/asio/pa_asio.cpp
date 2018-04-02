@@ -112,9 +112,7 @@
 #define WIN32
 #endif
 
-#include "asiosys.h"
-#include "asio.h"
-#include "asiodrivers.h"
+#include "asio-wrapper.hpp"
 #include "iasiothiscallresolver.h"
 
 /*
@@ -264,7 +262,7 @@ static const char* PaAsio_GetAsioErrorText( ASIOError asioError )
     /* need to be implemented on Mac */
     inline long PaAsio_AtomicIncrement(volatile long* v) {return ++(*const_cast<long*>(v));}
     inline long PaAsio_AtomicDecrement(volatile long* v) {return --(*const_cast<long*>(v));}
-#elif WINDOWS
+#elif WIN32
     inline long PaAsio_AtomicIncrement(volatile long* v) {return InterlockedIncrement(const_cast<long*>(v));}
     inline long PaAsio_AtomicDecrement(volatile long* v) {return InterlockedDecrement(const_cast<long*>(v));}
 #endif
@@ -598,7 +596,7 @@ static void ConvertFloat32ToFloat64( void *buffer, long shift, long count )
 #undef PA_LSB_IS_NATIVE_
 #endif
 
-#ifdef WINDOWS
+#ifdef WIN32
 #undef PA_MSB_IS_NATIVE_
 #define PA_LSB_IS_NATIVE_
 #endif
@@ -1239,7 +1237,7 @@ PaError PaAsio_Initialize( PaUtilHostApiRepresentation **hostApi, PaHostApiIndex
     (*hostApi)->info.name = "ASIO";
     (*hostApi)->info.deviceCount = 0;
 
-    #ifdef WINDOWS
+    #ifdef WIN32
         /* use desktop window as system specific ptr */
         asioHostApi->systemSpecific = GetDesktopWindow();
     #endif
@@ -1248,7 +1246,7 @@ PaError PaAsio_Initialize( PaUtilHostApiRepresentation **hostApi, PaHostApiIndex
         the number of installed physical devices. */
     #if MAC
         driverCount = asioHostApi->asioDrivers->getNumFragments();
-    #elif WINDOWS
+    #elif WIN32
         driverCount = asioHostApi->asioDrivers->asioGetNumDev();
     #endif
 

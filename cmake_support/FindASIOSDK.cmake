@@ -1,11 +1,10 @@
 # $Id: $
 #
-# - Try to find the ASIO SDK
+# - Try to find the openASIO SDK
 # Once done this will define
 #
-#  ASIOSDK_FOUND - system has ASIO SDK
-#  ASIOSDK_ROOT_DIR - path to the ASIO SDK base directory
-#  ASIOSDK_INCLUDE_DIR - the ASIO SDK include directory
+#  openASIOSDK_FOUND - system has openASIO SDK
+#  openASIOSDK_INCLUDE_DIR - path to the openASIO SDK base directory
 
 if(WIN32)
 else(WIN32)
@@ -19,23 +18,18 @@ foreach(f ${results})
   endif()
 endforeach()
 
-find_path(ASIOSDK_ROOT_DIR
-  common/asio.h
+find_path(ASIOSDK_INCLUDE_DIR
+  asio-wrapper.hpp
   HINTS
     ${ASIOSDK_PATH_HINT}
 )
 
-find_path(ASIOSDK_INCLUDE_DIR
-  asio.h
-  PATHS
-    ${ASIOSDK_ROOT_DIR}/common 
-)  
 
 # handle the QUIETLY and REQUIRED arguments and set ASIOSDK_FOUND to TRUE if 
 # all listed variables are TRUE
 INCLUDE(FindPackageHandleStandardArgs)
-FIND_PACKAGE_HANDLE_STANDARD_ARGS(ASIOSDK DEFAULT_MSG ASIOSDK_ROOT_DIR ASIOSDK_INCLUDE_DIR)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(ASIOSDK DEFAULT_MSG ASIOSDK_INCLUDE_DIR)
 
 MARK_AS_ADVANCED(
-    ASIOSDK_ROOT_DIR ASIOSDK_INCLUDE_DIR
+    ASIOSDK_INCLUDE_DIR
 )
