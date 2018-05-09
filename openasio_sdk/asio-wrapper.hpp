@@ -71,7 +71,7 @@
  *
  * c/c++ hosts:
  * https://github.com/steveschow/osxwineasio/blob/master/asio.c
- * http://www.oifii.org/ns-org/nsd/ar/cp/audio_spivsthost/vsthostsrc/AsioHost.cpp
+ * https://github.com/t-mat/vsthost-vc2013/blob/master/vsthostsrc/AsioHost.cpp
  * http://kana-soft.com/tech/sample_0004_5.htm
  * https://github.com/dechamps/FlexASIO/blob/master/flexasio.h
  *
@@ -140,6 +140,7 @@
 /******************************************************************************/
 
 /* http://www.oifii.org/ns-org/nsd/ar/cp/audio_spivsthost/vsthostsrc/AsioHost.cpp */
+/* https://github.com/t-mat/vsthost-vc2013/blob/master/vsthostsrc/AsioHost.cpp line 665 */
 #define ASIO_LITTLE_ENDIAN true
 /* the following from https://www.freebasic.net/forum/viewtopic.php?t=16890 */
 #define NATIVE_INT64				0

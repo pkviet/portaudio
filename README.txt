@@ -1,11 +1,12 @@
 ===========================================
 NB: Additional notes, openASIO fork
 
-Branch openasio of this portaudio fork relies on an open sourced implementation of asio sdk under GPL v3+.
+Branch openasio of this portaudio fork relies on an open sourced implementation of asio sdk under GPL v2+.
 In order to build support for ASIO without relying on Steinberg sdk, run cmake-gui and set:
 ASIOSDK_INCLUDE_DIR to the openasio_sdk folder (which is at same level as src/).
 Select your build folder where your Visual Studio sln will be located.
 For feedback, post on issues tab in github.
+NB: the links given in our sdk as references have been archived in openasio_sdk/links in case the links should expire.
 ===========================================
 README for PortAudio
 
